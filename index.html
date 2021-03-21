@@ -20,6 +20,33 @@
   Checkout 60%
 </button>
 
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-sku_H1Lm3tsXHQBC52"
+  role="link"
+  type="button"
+>
+  Checkout 40%
+</button>
+
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-sku_H1Lm3tsXHQBC52"
+  role="link"
+  type="button"
+>
+  Checkout Platzreservierung
+</button>
+
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-sku_J9id0bxG7NEcMN"
+  role="link"
+  type="button"
+>
+  Checkout Dynamischer Preis
+</button>
+
 
 <div id="error-message"></div>
 
@@ -27,6 +54,7 @@
 (function() {
   var stripe = Stripe('pk_live_Ry7uBtYiryDDVxIyL2TD0IdR00yFvTZbMy');
 
+// 100%
   var checkoutButton = document.getElementById('checkout-button-sku_J9hmyRieq1moqP');
   checkoutButton.addEventListener('click', function () {
     stripe.redirectToCheckout({
@@ -43,36 +71,72 @@
     });
   });
 	
-	
+// 60%
 var checkoutButton = document.getElementById('checkout-button-sku_H1LnpTWRYl1fJk');
   checkoutButton.addEventListener('click', function () {
-    /*
-     * When the customer clicks on the button, redirect
-     * them to Checkout.
-     */
     stripe.redirectToCheckout({
       lineItems: [{price: 'sku_H1LnpTWRYl1fJk', quantity: 1}],
       mode: 'payment',
-      /*
-       * Do not rely on the redirect to the successUrl for fulfilling
-       * purchases, customers may not always reach the success_url after
-       * a successful payment.
-       * Instead use one of the strategies described in
-       * https://stripe.com/docs/payments/checkout/fulfill-orders
-       */
       successUrl: 'https://georg1sc.github.io/SPMC/success',
       cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
     })
     .then(function (result) {
       if (result.error) {
-        /*
-         * If `redirectToCheckout` fails due to a browser or network
-         * error, display the localized error message to your customer.
-         */
         var displayError = document.getElementById('error-message');
         displayError.textContent = result.error.message;
       }
     });
   });
+	
+//40%
+var checkoutButton = document.getElementById('checkout-button-sku_H1Lm3tsXHQBC52');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'sku_H1Lm3tsXHQBC52', quantity: 1}],
+      mode: 'payment',
+      successUrl: 'https://georg1sc.github.io/SPMC/success',
+      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+// Platzreservierung
+var checkoutButton = document.getElementById('checkout-button-sku_H1LoMFRU2kyRDM');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'sku_H1LoMFRU2kyRDM', quantity: 1}],
+      mode: 'payment',
+      successUrl: 'https://georg1sc.github.io/SPMC/success',
+      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+	
+// Änderbarer Preis
+var checkoutButton = document.getElementById('checkout-button-sku_J9id0bxG7NEcMN');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'sku_J9id0bxG7NEcMN', quantity: 1}],
+      mode: 'payment',
+      successUrl: 'https://georg1sc.github.io/SPMC/success',
+      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+	
 })();
 </script>
