@@ -1,6 +1,6 @@
 ## Thank you very much, your payment has been processed with success. 
 
-![logo-1920](https://user-images.githubusercontent.com/32634026/78211865-78521c00-74ae-11ea-8fca-00808e83a1af.png)
+![logo (1)](https://user-images.githubusercontent.com/32634026/111901506-f3527080-8a38-11eb-86ee-5974864bd466.png)
 
 -----------------------------
 
@@ -16,4 +16,3 @@
 - Place of venue/Trade register Bolzano, Italy
 - Trade register number: SCHGRG95R30I729H
 - VAT number: IT 02947720211
-
