@@ -6,15 +6,20 @@
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
   id="checkout-button-sku_J9hmyRieq1moqP"
   role="link"
-  type="button">  Checkout
+  type="button"
+>
+  100% Checkout
 </button>
 
 <button
-		style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
-		id="checkout-button-sku_H1LoMFRU2kyRDM"
-		role="link">
-		Checkout - Seat Reservation
-	</button>
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em"
+  id="checkout-button-sku_H1LnpTWRYl1fJk"
+  role="link"
+  type="button"
+>
+  Checkout 60%
+</button>
+
 
 <div id="error-message"></div>
 
@@ -24,12 +29,29 @@
 
   var checkoutButton = document.getElementById('checkout-button-sku_J9hmyRieq1moqP');
   checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'sku_J9hmyRieq1moqP', quantity: 1}],
+      mode: 'payment',
+      successUrl: 'https://georg1sc.github.io/SPMC/success',
+      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+	
+	
+var checkoutButton = document.getElementById('checkout-button-sku_H1LnpTWRYl1fJk');
+  checkoutButton.addEventListener('click', function () {
     /*
      * When the customer clicks on the button, redirect
      * them to Checkout.
      */
     stripe.redirectToCheckout({
-      lineItems: [{price: 'sku_J9hmyRieq1moqP', quantity: 1}],
+      lineItems: [{price: 'sku_H1LnpTWRYl1fJk', quantity: 1}],
       mode: 'payment',
       /*
        * Do not rely on the redirect to the successUrl for fulfilling
@@ -38,8 +60,8 @@
        * Instead use one of the strategies described in
        * https://stripe.com/docs/payments/checkout/fulfill-orders
        */
-      successUrl: 'https://www.linkedin.com/in/georgschwienbacher/success',
-      cancelUrl: 'https://www.linkedin.com/in/georgschwienbacher/canceled',
+      successUrl: 'https://georg1sc.github.io/SPMC/success',
+      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
     })
     .then(function (result) {
       if (result.error) {
@@ -53,29 +75,4 @@
     });
   });
 })();
-  
-  var checkoutButton = document.getElementById('checkout-button-sku_H1LoMFRU2kyRDM');
-  checkoutButton.addEventListener('click', function () {
-    // When the customer clicks on the button, redirect
-    // them to Checkout.
-    stripe.redirectToCheckout({
-      items: [{sku: 'sku_H1LoMFRU2kyRDM', quantity: 1}],
-
-      // Do not rely on the redirect to the successUrl for fulfilling
-      // purchases, customers may not always reach the success_url after
-      // a successful payment.
-      // Instead use one of the strategies described in
-      // https://stripe.com/docs/payments/checkout/fulfillment
-      successUrl: 'https://georg1sc.github.io/SPMC/success',
-      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, display the localized error message to your customer.
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
 </script>
