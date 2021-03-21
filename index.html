@@ -37,9 +37,7 @@
 	    // When the customer clicks on the button, redirect
 	    // them to Checkout.
 	    stripe.redirectToCheckout({
-	      lineItems: [{price: 'sku_H1Lm3tsXHQBC52', quantity: 1}],
-	      mode: 'payment',
-
+	      lineItems: [{price: 'sku_J9hmyRieq1moqP', quantity: 1}],
 	      // Do not rely on the redirect to the successUrl for fulfilling
 	      // purchases, customers may not always reach the success_url after
 	      // a successful payment.
@@ -62,9 +60,7 @@
 	  checkoutButton.addEventListener('click', function () {
 	    // When the customer clicks on the button, redirect
 	    // them to Checkout.
-	    lineItems: [{price: 'sku_H1LnpTWRYl1fJk', quantity: 1}],
-	      mode: 'payment',
-
+	    lineItems: [{price: 'sku_J9hmyRieq1moqP', quantity: 1}],
 	      // Do not rely on the redirect to the successUrl for fulfilling
 	      // purchases, customers may not always reach the success_url after
 	      // a successful payment.
@@ -88,8 +84,7 @@
 	    // When the customer clicks on the button, redirect
 	    // them to Checkout.
 	    stripe.redirectToCheckout({
-	     lineItems: [{price: 'sku_H1LoMFRU2kyRDM', quantity: 1}],
-	      mode: 'payment',
+		    items: [{sku: 'sku_H1LoMFRU2kyRDM', quantity: 1}],
 
 	      // Do not rely on the redirect to the successUrl for fulfilling
 	      // purchases, customers may not always reach the success_url after
@@ -115,8 +110,7 @@
 	    // When the customer clicks on the button, redirect
 	    // them to Checkout.
 	    stripe.redirectToCheckout({
-	      lineItems: [{price: 'sku_J9hmyRieq1moqP', quantity: 1}],
-	      mode: 'payment',
+		    items: [{sku: 'sku_J9hmyRieq1moqP', quantity: 1}],
 
 	      // Do not rely on the redirect to the successUrl for fulfilling
 	      // purchases, customers may not always reach the success_url after
