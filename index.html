@@ -111,27 +111,7 @@ var checkoutButton = document.getElementById('checkout-button-sku_H1Lm3tsXHQBC52
         var displayError = document.getElementById('error-message');
         displayError.textContent = result.error.message;
       }
-    });
-  });
-// Platzreservierung
-var checkoutButton = document.getElementById('checkout-button-sku_H1LoMFRU2kyRDM');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'sku_H1LoMFRU2kyRDM', quantity: 1}],
-      mode: 'payment',
-      successUrl: 'https://georg1sc.github.io/SPMC/success',
-      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
-  });
-	
-
-  });
-	
-})();
+    });	
+});
+ })();
 </script>
