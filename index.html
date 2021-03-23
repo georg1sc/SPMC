@@ -45,21 +45,7 @@
 (function() {
   var stripe = Stripe('pk_live_Ry7uBtYiryDDVxIyL2TD0IdR00yFvTZbMy');
 	
-	// Änderbarer Preis
-var checkoutButton = document.getElementById('checkout-button-sku_J9id0bxG7NEcMN');
-  checkoutButton.addEventListener('click', function () {
-    stripe.redirectToCheckout({
-      lineItems: [{price: 'sku_J9id0bxG7NEcMN', quantity: 1}],
-      mode: 'payment',
-      successUrl: 'https://georg1sc.github.io/SPMC/success',
-      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
-    })
-    .then(function (result) {
-      if (result.error) {
-        var displayError = document.getElementById('error-message');
-        displayError.textContent = result.error.message;
-      }
-    });
+
 
 // 100%
   var checkoutButton = document.getElementById('checkout-button-sku_J9hmyRieq1moqP');
@@ -77,6 +63,22 @@ var checkoutButton = document.getElementById('checkout-button-sku_J9id0bxG7NEcMN
       }
     });
   });
+	
+		// Änderbarer Preis
+var checkoutButton = document.getElementById('checkout-button-sku_J9id0bxG7NEcMN');
+  checkoutButton.addEventListener('click', function () {
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'sku_J9id0bxG7NEcMN', quantity: 1}],
+      mode: 'payment',
+      successUrl: 'https://georg1sc.github.io/SPMC/success',
+      cancelUrl: 'https://georg1sc.github.io/SPMC/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
 	
 // 60%
 var checkoutButton = document.getElementById('checkout-button-sku_H1LnpTWRYl1fJk');
